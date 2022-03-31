@@ -13,7 +13,6 @@
 )]
 #![deny(
     renamed_and_removed_lints,
-    stable_features,
     unused_allocation,
     unused_comparisons
 )]
