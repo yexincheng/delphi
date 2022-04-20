@@ -131,9 +131,9 @@ class Cifar10Model(Trainable):
             optimizer=opt,
             metrics=["accuracy"])
 
-        config = tf.ConfigProto(allow_soft_placement=True)
+        config = tf.compat.v1.ConfigProto(allow_soft_placement=True)
         config.gpu_options.allow_growth = True
-        sess = tf.Session(config=config)
+        sess = tf.compat.v1.Session (config=config)
         sess.run(tf.compat.v1.global_variables_initializer())
         tf.compat.v1.keras.backend.set_session(sess)
         self.model = model
