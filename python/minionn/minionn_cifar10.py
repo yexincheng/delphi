@@ -326,7 +326,7 @@ if __name__ == "__main__":
         "num_samples": 10
     }
 
-    ray.init()
+    ray.init(address="auto")
 
     pbt = PopulationBasedTraining(
         time_attr="training_iteration",
