@@ -34,6 +34,11 @@ In addition, there is a  [`rust/bench-utils`](rust/bench-utils) crate which cont
 
 ## Build guide
 
+The library requires a few dependencies to run. On Ubuntu these can be installed via:
+```bash
+sudo apt install cmake pkg-config g++ gcc libssl-dev libclang-dev
+```
+
 The library compiles on the `nightly` toolchain of the Rust compiler. To install the latest version of Rust, first install `rustup` by following the instructions [here](https://rustup.rs/), or via your platform's package manager. Once `rustup` is installed, install the Rust toolchain by invoking:
 ```bash
 rustup install nightly
@@ -65,7 +70,7 @@ Let's walk through a full example of using Delphi with the pretrained MiniONN mo
 
 Using Python3.6/7, install the following packages:
 ```bash
-pip install ray[tune]==0.8.0 requests scipy tensorflow==1.15.0 
+pip install ray[tune]==0.8.4 requests scipy tensorflow==1.15.0 
 ```
 Optionally, visualizing results requires the `tensorboard` package:
 ```bash
@@ -114,7 +119,7 @@ python3 generate_test_images.py
 ```
 and perform inference on that image by running:
 ```bash
-cargo +nightly run --release --bin minionn-inference /tmp/model.npy {num of approx layers}
+cargo +nightly run --release --bin minionn-inference -- --weights /tmp/model.npy --layers {num of approx layers}
 ```
 
 ## License
